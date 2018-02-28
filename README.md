@@ -1,5 +1,11 @@
 # Kafka Notes
 
+I do nearly all my development with local [Docker containers](https://hub.docker.com/u/cjimti/) these days.
+I moved from big bulky Vagrant managed VirtualBoxs to small simple
+Docker containers about a year ago and have not looked back. I run
+containers with individual `docker run` commands or use `docker-compose`
+for slightly more complex setups.
+
 My notes for getting started with [Kafka](https://kafka.apache.org/) on
 a Mac. This is for development and testing. After experimenting with a
 few other options [Confluent](https://www.confluent.io/) / [Confluent
@@ -127,7 +133,8 @@ services:
          
 ```
 
-This Kafka notes repository contains this compose file.
+This Kafka notes repository contains a compose file. Clone and
+run this stack with `docker-compose`.
 
 ```bash
 git clone git@github.com:cjimti/notes-kafka.git

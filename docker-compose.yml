@@ -1,0 +1,34 @@
+version: "3.2"
+
+networks:
+  kafkanet:
+    driver: bridge
+
+services:
+  zookeeper:
+    image: "confluent/zookeeper"
+    container_name: "zookeeper"
+    networks:
+      - kafkanet
+    ports:
+      - 2881:2181
+
+  kafka:
+    image: "confluent/kafka"
+    container_name: "kafka"
+    depends_on:
+      - zookeeper
+    networks:
+      - kafkanet
+    ports:
+      - 9092:9092
+
+  schema-registry:
+    image: "confluent/schema-registry"
+    container_name: "schema-registry"
+    depends_on:
+      - kafka
+    networks:
+      - kafkanet
+    ports:
+      - 8081:8081
